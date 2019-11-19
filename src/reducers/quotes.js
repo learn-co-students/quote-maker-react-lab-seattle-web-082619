@@ -13,14 +13,7 @@ export default (state = [], action) => {
         return quote;
       });
     case "REMOVE_QUOTE":
-      //Not Working
-      // return state.map(quote => {
-      //   if (quote.id !== action.quoteId) return quote;
-      // });
-
-      //Working
-      let idx = state.findIndex(quote => quote.id === action.quoteId);
-      return [...state.slice(0, idx), ...state.slice(idx + 1)];
+      return state.filter(quote => quote.id !== action.quoteId);
 
     default:
       return state;
